@@ -1,0 +1,243 @@
+@import "color.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Sofia", sans-serif;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+@mixin dis($color) {
+    background:$color;
+    background-repeat: no-repeat;
+    background-size: 70dvh;
+    background-position: center;
+    animation: move2 linear;
+    animation-timeline: view();
+}
+html{
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+.head{
+    position: fixed;
+    z-index: 100;
+    height: 100dvh;
+    width: 5dvw;
+    background: black;
+    ul{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2vh;
+        li{
+            list-style: none;
+            margin: 0 2vw;
+            a{
+                text-decoration: none;
+                color: white;
+                font-size: 1.5rem;
+            }
+            &:nth-child(1){
+                &:hover{
+                        a{
+                            color: $f1;
+                    }
+                }
+            }
+            &:nth-child(2){
+                &:hover{
+                        a{
+                            color: $f2;
+                    }
+                }
+            }
+            &:nth-child(3){
+                &:hover{
+                        a{
+                            color: $f3;
+                    }
+                }
+            }
+            &:nth-child(4){
+                &:hover{
+                        a{
+                            color: $f4;
+                    }
+                }
+            }
+            &:nth-child(5){
+                &:hover{
+                        a{
+                            color: $f5;
+                    }
+                }
+            }
+            &:nth-child(6){
+                &:hover{
+                        a{
+                            color: $f6;
+                    }
+                }
+            }
+            &:nth-child(7){
+                &:hover{
+                        a{
+                            color: $f7;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.block{
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .center{
+        position: relative;
+        width: 29%;
+        height: 85%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+            p{
+                font-size: 1.5rem;
+                color: whitesmoke;
+                position: absolute;
+                font-weight: bold;
+                opacity: 0;
+                transition: all .7s ease-in-out;
+                &:nth-child(1){
+                    top: 0;
+                    left: 0;
+                }
+                &:nth-child(2){
+                    top: 0;
+                    right: 0;
+                }
+                &:nth-child(3){
+                    bottom:0;
+                    left: 0;
+                }
+                &:nth-child(4){
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+            &:hover{
+                p{
+                    &:nth-child(1),&:nth-child(3){
+                        animation: trans1 2s forwards;
+                    }
+                    &:nth-child(2),&:nth-child(4){
+                        animation: trans2 2s forwards;
+                    }
+                }
+            }
+        }
+    }
+
+.num1{
+    @include dis($f1);
+    background-image: url(assets/backstagetalks_cover_issue_3.png);
+
+}
+.num2{
+    @include dis($f2);
+    background-image: url(assets/backstagetalks_cover2016_n.png);
+}
+.num3{
+    @include dis($f3);
+    background-image: url(assets/backstagetalks_cover2017.png);
+
+}
+.num4{
+    @include dis($f4);
+    background-image: url(assets/backstagetalks_cover_issue_4.png);
+
+}
+.num5{
+    @include dis($f5);
+    background-image: url(assets/backstagetalks_cover_issue_5.png);
+
+}
+.num6{
+    @include dis($f6);
+    background-image: url(assets/backstagetalks_cover_issue_7.png);
+}
+.num7{
+    @include dis(#fff);
+    background-image: url(assets/backstagetalks_cover_issue_6.png);
+    .center{
+       p{
+              color: black;
+       }
+    }
+}
+@keyframes move2{
+    0%,10%{
+        opacity: 0;
+    }
+    20%,70%,80%{
+        opacity: 1;
+    }
+    95%,100%{
+        opacity: 0;
+    } 
+}
+
+@keyframes trans1{
+    from{
+        transform: translateX(0);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+}
+@keyframes trans2{
+    from{
+        transform: translateX(0);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(100%);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .head{
+        width: 100%;
+        height: 10vh;
+        ul{
+            flex-direction: row;
+            li{
+                margin: 0 1vw;
+                a{
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    .block{
+        .center{
+            background-size: 100%;
+        }
+    } 
+    .num0,.num1,.num2,.num3,.num4,.num5,.num6{
+        background-size: 100%;
+    }  
+}

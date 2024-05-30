@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Sofia", sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+.head {
+  position: fixed;
+  z-index: 100;
+  height: 100dvh;
+  width: 5dvw;
+  background: black;
+}
+.head ul {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+}
+.head ul li {
+  list-style: none;
+  margin: 0 2vw;
+}
+.head ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+.head ul li:nth-child(1):hover a {
+  color: #ffbe00;
+}
+.head ul li:nth-child(2):hover a {
+  color: #e30512;
+}
+.head ul li:nth-child(3):hover a {
+  color: #1d3fbb;
+}
+.head ul li:nth-child(4):hover a {
+  color: #ff651a;
+}
+.head ul li:nth-child(5):hover a {
+  color: #00c1b5;
+}
+.head ul li:nth-child(6):hover a {
+  color: rgb(245, 174, 186);
+}
+.head ul li:nth-child(7):hover a {
+  color: #ccc;
+}
+
+.block {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.block .center {
+  position: relative;
+  width: 29%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.block .center p {
+  font-size: 1.5rem;
+  color: whitesmoke;
+  position: absolute;
+  font-weight: bold;
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+}
+.block .center p:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+.block .center p:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+.block .center p:nth-child(3) {
+  bottom: 0;
+  left: 0;
+}
+.block .center p:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+.block .center:hover p:nth-child(1), .block .center:hover p:nth-child(3) {
+  animation: trans1 2s forwards;
+}
+.block .center:hover p:nth-child(2), .block .center:hover p:nth-child(4) {
+  animation: trans2 2s forwards;
+}
+
+.num1 {
+  background: #ffbe00;
+  background-repeat: no-repeat;
+  background-size: 70dvh;
+  background-position: center;
+  animation: move2 linear;
+  animation-timeline: view();
+  background-image: url(assets/backstagetalks_cover_issue_3.png);
+}
+
+.num2 {
+  background: #e30512;
+  background-repeat: no-repeat;
+  background-size: 70dvh;
+  background-position: center;
+  animation: move2 linear;
+  animation-timeline: view();
+  background-image: url(assets/backstagetalks_cover2016_n.png);
+}
+
+.num3 {
+  background: #1d3fbb;
+  background-repeat: no-repeat;
+  background-size: 70dvh;
+  background-position: center;
+  animation: move2 linear;
+  animation-timeline: view();
+  background-image: url(assets/backstagetalks_cover2017.png);
+}
+
+.num4 {
+  background: #ff651a;
+  background-repeat: no-repeat;
+  background-size: 70dvh;
+  background-position: center;
+  animation: move2 linear;
+  animation-timeline: view();
+  background-image: url(assets/backstagetalks_cover_issue_4.png);
+}
+
+.num5 {
+  background: #00c1b5;
+  background-repeat: no-repeat;
+  background-size: 70dvh;
+  background-position: center;
+  animation: move2 linear;
+  animation-timeline: view();
+  background-image: url(assets/backstagetalks_cover_issue_5.png);
+}
+
+.num6 {
+  background: rgb(245, 174, 186);
+  background-repeat: no-repeat;
+  background-size: 70dvh;
+  background-position: center;
+  animation: move2 linear;
+  animation-timeline: view();
+  background-image: url(assets/backstagetalks_cover_issue_7.png);
+}
+
+.num7 {
+  background: #fff;
+  background-repeat: no-repeat;
+  background-size: 70dvh;
+  background-position: center;
+  animation: move2 linear;
+  animation-timeline: view();
+  background-image: url(assets/backstagetalks_cover_issue_6.png);
+}
+.num7 .center p {
+  color: black;
+}
+
+@keyframes move2 {
+  0%, 10% {
+    opacity: 0;
+  }
+  20%, 70%, 80% {
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes trans1 {
+  from {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+}
+@keyframes trans2 {
+  from {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+}
+@media (max-width: 768px) {
+  .head {
+    width: 100%;
+    height: 10vh;
+  }
+  .head ul {
+    flex-direction: row;
+  }
+  .head ul li {
+    margin: 0 1vw;
+  }
+  .head ul li a {
+    font-size: 1rem;
+  }
+  .block .center {
+    background-size: 100%;
+  }
+  .num0, .num1, .num2, .num3, .num4, .num5, .num6 {
+    background-size: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */
